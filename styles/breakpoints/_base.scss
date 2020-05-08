@@ -152,12 +152,6 @@ main {
             transition: transform 0.3s ease 1.6s;
             transform-origin: right;
         };
-
-        &.inview {
-            &::before {
-                transform: translateY(-50%);
-            }
-        }
     }
 
     &__sub {
@@ -183,6 +177,11 @@ main {
 
     &__texts {
         @extend .pb-sm;
+        &.inview {
+            & .travel__title::before {
+                transform: translateY(-50%);
+            }
+        }
     }
 }
 
@@ -301,18 +300,19 @@ main {
     position: fixed;
     top: 70%;
     transform: translateY(-50%);
+    transition: all 0.3s ease-in;
 
-    & a,
-    & span {
+    & .tween-animate-title {
         color: $cBlack;
         text-decoration: none;
         margin: 0 40px;
         vertical-align: middle;
+        letter-spacing: 2px;
     }
 
     &.left {
         left: 50px;
-
+        
         & .side__inner {
             transform: rotate(-90deg);
             transform-origin: top left;
